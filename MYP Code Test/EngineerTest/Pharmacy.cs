@@ -46,7 +46,7 @@ public class Pharmacy : IPharmacy
                     default: break;
                 }
             }
-            else if(item.ExpiresIn > 0)
+            else if(item.ExpiresIn >= 0)
             {
                 switch (item.Name)
                 {
@@ -72,6 +72,10 @@ public class Pharmacy : IPharmacy
             if(item.Benefit < 0)
             {
                 item.Benefit = 0;
+            }
+            if(item.Benefit > 50)
+            {
+                item.Benefit = 50;
             }
         }
         return _drugs; ;
